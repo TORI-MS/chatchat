@@ -7,7 +7,7 @@ st.title("💬 실시간 보관되는 메시지 보드")
 
 # 1. 구글 시트 연결 설정 (여기에 복사한 구글 시트 링크를 넣으세요)
 # 주의: 링크 끝부분이 /edit?usp=sharing 이라면 /edit#gid=0 등으로 끝날 수 있습니다. URL 그대로 넣으시면 됩니다.
-GSHEETS_URL = "여기에_복사한_구글_시트_링크를_넣으세요"
+GSHEETS_URL = "https://docs.google.com/spreadsheets/d/1pmjIfXlPGWniRXlKShpPtYPZliOdlfaqMvBaqlW-jyU/edit?usp=sharing"
 
 conn = st.connection("gsheets", type=GSheetsConnection)
 
