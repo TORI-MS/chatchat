@@ -8,8 +8,7 @@ st.title("💬 실시간 보관되는 메시지 보드")
 SPREADSHEET_ID = "1pmjIfXlPGWniRXlKShpPtYPZliOdlfaqMvBaqlW-jyU"
 WORKSHEET_NAME = "시트1"
 
-# [수정] 코드 내부에서 직접 구글 서비스 계정 자격증명을 구성합니다.
-# 다운로드하신 JSON 파일의 내용을 아래에 그대로 붙여넣으세요.
+# [수정] st.connection이 오작동하지 않도록 딕셔너리 구조를 명확히 정의합니다.
 service_account_info = {
     "type": "service_account",
     "project_id": "여기에_project_id_입력",
@@ -19,11 +18,11 @@ service_account_info = {
     "client_email": "여기에_client_email_입력",
 }
 
-# st.connection을 생성할 때 위의 인증 정보를 강제로 주입합니다.
+# [핵심 수정] ** 인증 정보를 직접 풀지 않고, 지정된 형식(credentials)으로 포장해서 넘겨줍니다.
 conn = st.connection(
     "gsheets", 
     type=GSheetsConnection, 
-    **service_account_info
+    credentials=service_account_info
 )
 
 try:
